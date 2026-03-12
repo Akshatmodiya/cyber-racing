@@ -1,0 +1,265 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Gaming Design System - Cyberpunk Racing Theme
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Core Gaming Colors */
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    /* Racing Theme Colors */
+    --primary: 195 100% 50%;
+    --primary-foreground: 240 10% 3.9%;
+    --primary-glow: 195 100% 70%;
+
+    --secondary: 120 100% 50%;
+    --secondary-foreground: 240 10% 3.9%;
+    --secondary-glow: 120 100% 70%;
+
+    --accent: 300 100% 50%;
+    --accent-foreground: 240 10% 3.9%;
+    --accent-glow: 300 100% 70%;
+
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 195 100% 50%;
+
+    /* Gaming Specific Colors */
+    --neon-blue: 195 100% 50%;
+    --neon-green: 120 100% 50%;
+    --neon-pink: 300 100% 50%;
+    --neon-yellow: 60 100% 50%;
+    --cyber-purple: 270 100% 50%;
+
+    /* Gradients */
+    --gradient-racing: linear-gradient(135deg, hsl(195 100% 50%), hsl(300 100% 50%));
+    --gradient-neon: linear-gradient(90deg, hsl(195 100% 50%), hsl(120 100% 50%), hsl(300 100% 50%));
+    --gradient-dark: linear-gradient(180deg, hsl(240 10% 3.9%), hsl(240 10% 8%));
+
+    /* Effects */
+    --glow-blue: 0 0 20px hsl(195 100% 50% / 0.5);
+    --glow-green: 0 0 20px hsl(120 100% 50% / 0.5);
+    --glow-pink: 0 0 20px hsl(300 100% 50% / 0.5);
+    --shadow-neon: 0 0 30px hsl(195 100% 50% / 0.3);
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+}
+
+@layer components {
+  /* Gaming Typography */
+  .text-neon {
+    text-shadow: var(--glow-blue);
+  }
+  
+  .text-glow-green {
+    text-shadow: var(--glow-green);
+  }
+  
+  .text-glow-pink {
+    text-shadow: var(--glow-pink);
+  }
+
+  /* Racing Elements */
+  .racing-gradient {
+    background: var(--gradient-racing);
+  }
+  
+  .neon-border {
+    border: 1px solid hsl(var(--neon-blue));
+    box-shadow: var(--shadow-neon);
+  }
+
+  /* Game Animations */
+  .pulse-neon {
+    animation: pulse-neon 2s ease-in-out infinite alternate;
+  }
+
+  .car-engine {
+    animation: car-engine 0.1s ease-in-out infinite;
+  }
+
+  .speed-lines {
+    animation: speed-lines 0.5s linear infinite;
+  }
+
+  .track-scroll {
+    animation: track-scroll 2s linear infinite;
+  }
+
+  @keyframes pulse-neon {
+    from {
+      box-shadow: 0 0 10px hsl(var(--neon-blue) / 0.5);
+    }
+    to {
+      box-shadow: 0 0 30px hsl(var(--neon-blue) / 0.8);
+    }
+  }
+
+  @keyframes car-engine {
+    0%, 100% { transform: translateX(0px); }
+    50% { transform: translateX(1px); }
+  }
+
+  @keyframes speed-lines {
+    0% { 
+      transform: translateX(100px);
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% { 
+      transform: translateX(-100px);
+      opacity: 0;
+    }
+  }
+
+  @keyframes track-scroll {
+    0% { transform: translateY(0px); }
+    100% { transform: translateY(50px); }
+  }
+
+  .racing-track {
+    background: 
+      repeating-linear-gradient(
+        0deg,
+        hsl(var(--muted)) 0px,
+        hsl(var(--muted)) 2px,
+        transparent 2px,
+        transparent 50px
+      ),
+      linear-gradient(
+        90deg,
+        hsl(var(--primary) / 0.1) 0%,
+        hsl(var(--background)) 10%,
+        hsl(var(--background)) 90%,
+        hsl(var(--secondary) / 0.1) 100%
+      );
+  }
+
+  .track-lanes {
+    background: repeating-linear-gradient(
+      90deg,
+      transparent 0px,
+      transparent 120px,
+      hsl(var(--muted) / 0.3) 120px,
+      hsl(var(--muted) / 0.3) 122px
+    );
+  }
+
+  .car-sprite {
+    width: 40px;
+    height: 20px;
+    border-radius: 8px;
+    position: relative;
+    transition: all 0.1s ease-out;
+  }
+
+  .car-sprite::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border-radius: 10px;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+
+  .car-sprite.boosting::before {
+    opacity: 1;
+    box-shadow: 0 0 15px currentColor;
+  }
+
+  .minimap {
+    background: radial-gradient(circle at center, hsl(var(--background)), hsl(var(--muted)));
+    border: 2px solid hsl(var(--primary) / 0.3);
+  }
+}
